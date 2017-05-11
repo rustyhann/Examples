@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA3D93A7-27D7-4B59-8D9E-DF1A3DE0DAAB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlServerMigrations</RootNamespace>
+    <AssemblyName>SqlServerMigrations</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentMigrator, Version=1.6.1.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentMigrator.1.6.1\lib\40\FluentMigrator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\20160420161009_CREATE_TABLE_TRANS_TYPES.cs" />
+    <Compile Include="Migrations\20160420161027_CREATE_TABLE_TRANSACTIONS.cs" />
+    <Compile Include="Migrations\20160420161039_CREATE_TABLE_TRANS_METHOD_DESC.cs" />
+    <Compile Include="Migrations\20160420161053_CREATE_TABLE_ACCT_ORDER.cs" />
+    <Compile Include="Migrations\20160420161103_CREATE_TABLE_EVT_REGIS.cs" />
+    <Compile Include="Migrations\20160420161113_CREATE_TABLE_STATUS_MASTER.cs" />
+    <Compile Include="Migrations\20160420161128_CREATE_TABLE_EVENT_MASTER.cs" />
+    <Compile Include="Migrations\20160420161139_CREATE_TABLE_EVT_CLASS.cs" />
+    <Compile Include="Migrations\20160420161151_CREATE_TABLE_ACCT_MASTER.cs" />
+    <Compile Include="Migrations\20160420161451_CREATE_TABLE_JOB_METRICS.cs" />
+    <Compile Include="Migrations\20160420161621_CREATE_TVP_TRANS_TYPES.cs" />
+    <Compile Include="Migrations\20160420161633_CREATE_TVP_TRANSACTIONS.cs" />
+    <Compile Include="Migrations\20160420161645_CREATE_TVP_TRANS_METHOD_DESC.cs" />
+    <Compile Include="Migrations\20160420161706_CREATE_TVP_ACCT_ORDER.cs" />
+    <Compile Include="Migrations\20160420161715_CREATE_TVP_EVT_REGIS.cs" />
+    <Compile Include="Migrations\20160420161726_CREATE_TVP_STATUS_MASTER.cs" />
+    <Compile Include="Migrations\20160420161739_CREATE_TVP_EVENT_MASTER.cs" />
+    <Compile Include="Migrations\20160420161749_CREATE_TVP_EVT_CLASS.cs" />
+    <Compile Include="Migrations\20160420161758_CREATE_TVP_ACCT_MASTER.cs" />
+    <Compile Include="Migrations\20160502104350_CREATE_CSP_SYNC_TRANS_TYPES.cs" />
+    <Compile Include="Migrations\20160509093142_CREATE_CSP_SYNC_ACCT_MASTER.cs" />
+    <Compile Include="Migrations\20160509090007_CREATE_CSP_SYNC_EVT_CLASS.cs" />
+    <Compile Include="Migrations\20160508221557_CREATE_CSP_SYNC_EVENT_MASTER.cs" />
+    <Compile Include="Migrations\20160508221457_CREATE_CSP_SYNC_STATUS_MASTER.cs" />
+    <Compile Include="Migrations\20160506155747_CREATE_CSP_SYNC_EVT_REGIS.cs" />
+    <Compile Include="Migrations\20160506144310_CREATE_CSP_SYNC_ACCT_ORDER.cs" />
+    <Compile Include="Migrations\20160506124327_CREATE_CSP_SYNC_TRANS_METHOD_DESC.cs" />
+    <Compile Include="Migrations\20160506100955_CREATE_CSP_SYNC_TRANSACTIONS.cs" />
+    <Compile Include="Migrations\20160509094242_CREATE_CSP_INSERT_JOB_METRICS.cs" />
+    <Compile Include="Migrations\20160509095142_CREATE_CSP_TOGGLE_SIMPLE_RECOVERY.cs" />
+    <Compile Include="Migrations\20160509094142_CREATE_CSP_INSERT_SYNC_METRICS.cs" />
+    <Compile Include="Migrations\20160420161251_CREATE_TABLE_SYNC_METRICS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160420161009_CREATE_TABLE_TRANS_TYPES.sql" />
+    <EmbeddedResource Include="Sql\20160420161027_CREATE_TABLE_TRANSACTIONS.sql" />
+    <EmbeddedResource Include="Sql\20160420161039_CREATE_TABLE_TRANS_METHOD_DESC.sql" />
+    <EmbeddedResource Include="Sql\20160420161053_CREATE_TABLE_ACCT_ORDER.sql" />
+    <EmbeddedResource Include="Sql\20160420161103_CREATE_TABLE_EVT_REGIS.sql" />
+    <EmbeddedResource Include="Sql\20160420161113_CREATE_TABLE_STATUS_MASTER.sql" />
+    <EmbeddedResource Include="Sql\20160420161128_CREATE_TABLE_EVENT_MASTER.sql" />
+    <EmbeddedResource Include="Sql\20160420161139_CREATE_TABLE_EVT_CLASS.sql" />
+    <EmbeddedResource Include="Sql\20160420161151_CREATE_TABLE_ACCT_MASTER.sql" />
+    <EmbeddedResource Include="Sql\20160420161621_CREATE_TVP_TRANS_TYPES.sql" />
+    <EmbeddedResource Include="Sql\20160420161633_CREATE_TVP_TRANSACTIONS.sql" />
+    <EmbeddedResource Include="Sql\20160420161645_CREATE_TVP_TRANS_METHOD_DESC.sql" />
+    <EmbeddedResource Include="Sql\20160420161706_CREATE_TVP_ACCT_ORDER.sql" />
+    <EmbeddedResource Include="Sql\20160420161715_CREATE_TVP_EVT_REGIS.sql" />
+    <EmbeddedResource Include="Sql\20160420161726_CREATE_TVP_STATUS_MASTER.sql" />
+    <EmbeddedResource Include="Sql\20160420161739_CREATE_TVP_EVENT_MASTER.sql" />
+    <EmbeddedResource Include="Sql\20160420161749_CREATE_TVP_EVT_CLASS.sql" />
+    <EmbeddedResource Include="Sql\20160420161758_CREATE_TVP_ACCT_MASTER.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160502104350_CREATE_CSP_SYNC_TRANS_TYPES.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160420161251_CREATE_TABLE_SYNC_METRICS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160509094142_CREATE_CSP_INSERT_SYNC_METRICS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160509095142_CREATE_CSP_TOGGLE_SIMPLE_RECOVERY.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160506100955_CREATE_CSP_SYNC_TRANSACTIONS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160506124327_CREATE_CSP_SYNC_TRANS_METHOD_DESC.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160506144310_CREATE_CSP_SYNC_ACCT_ORDER.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160506155747_CREATE_CSP_SYNC_EVT_REGIS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160508221457_CREATE_CSP_SYNC_STATUS_MASTER.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160509093142_CREATE_CSP_SYNC_ACCT_MASTER.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160509090007_CREATE_CSP_SYNC_EVT_CLASS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160508221557_CREATE_CSP_SYNC_EVENT_MASTER.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160509094242_CREATE_CSP_INSERT_JOB_METRICS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\20160420161451_CREATE_TABLE_JOB_METRICS.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

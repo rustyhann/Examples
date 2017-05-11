@@ -1,0 +1,7 @@
+CREATE TABLE JOB_METRICS
+(
+	JOB_StartTime DATETIME,
+	JOB_EndTime DATETIME,
+	JOB_ElapsedTime DECIMAL(38,3),
+	JOB_Success BIT
+);
