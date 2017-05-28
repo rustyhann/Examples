@@ -1,0 +1,47 @@
+---
+# tasks file for kibana
+
+- name: ADD KIBANA REPOSITORY KEY
+  apt_key:
+    url: https://packages.elastic.co/GPG-KEY-elasticsearch
+    state: present
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: ADD KIBANA REPOSITORY
+  apt_repository:
+    repo: 'deb http://packages.elastic.co/kibana/4.5/debian stable main'
+    state: present
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: UPDATE APT
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: DIST-UPGRADE
+  apt:
+    upgrade: dist
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: INSTALL KIBANA
+  apt:
+    name: kibana
+    state: present
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: DEPLOY kibana.yml TEMPLATE ON DATANODES
+  template:
+    src: templates/kibana.yml
+    dest: /opt/kibana/config/kibana.yml
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: SET KIBANA TO START AT BOOT
+  command: update-rc.d kibana defaults 95 10
+  when: inventory_hostname in groups['HadoopNameNode']
+
+- name: RESTART THE kibana SERVICE
+  service:
+    name: kibana
+    state: restarted
+  when: inventory_hostname in groups['HadoopNameNode']

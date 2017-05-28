@@ -1,0 +1,6 @@
+---
+# defaults file for flume
+flume_url: http://apache.claz.org/flume/1.6.0/apache-flume-1.6.0-bin.tar.gz
+flume_md5: 'md5:defd21ad8d2b6f28cc0a16b96f652099'
+flume_archive_name: "apache-flume-1.6.0-bin.tar.gz"
+flume_extracted_name: "apache-flume-1.6.0-bin"

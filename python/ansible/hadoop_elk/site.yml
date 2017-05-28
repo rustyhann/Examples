@@ -1,0 +1,14 @@
+# Basic server setup
+
+- hosts: AllServers
+  gather_facts: yes
+  remote_user: rusty
+  become: yes
+  roles:
+    - { role: servers }
+    - { role: hadoop }
+    - { role: flume }
+    - { role: elasticsearch }
+    - { role: kibana }
+
+

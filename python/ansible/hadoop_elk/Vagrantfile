@@ -1,0 +1,115 @@
+Vagrant.configure(2) do |config|
+
+    # The same box will be used for all VMs
+
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box"
+
+    # The same keypair will be used for all VMs
+    # The insecure key is used for initialization of the VMs
+    # and then replaced with the secure key located in the project folder
+
+    config.ssh.forward_agent = true
+    config.ssh.insert_key = false
+    config.ssh.private_key_path = [".vagrant/id_rsa", "~/.vagrant.d/insecure_private_key"]
+    config.vm.provision "file", source: ".vagrant/id_rsa.pub", destination: "/home/vagrant/.ssh/authorized_keys"
+
+    # The vagrant user will be used to run Ansible
+    # Each machine has a copy of the secure keypair to allow
+    # the vagrant user SSH access through Ansible
+
+    config.vm.provision "file",
+      source: ".vagrant/id_rsa",
+      destination: "/home/vagrant/.ssh/id_rsa"
+
+    config.vm.provision "file",
+      source: ".vagrant/id_rsa.pub",
+      destination: "/home/vagrant/.ssh/id_rsa.pub"
+
+    # SSH access using username and password is disabled on all machines
+
+    config.vm.provision "shell", inline: <<-EOC
+      sudo sed -i -e "\\#PasswordAuthentication yes# s#PasswordAuthentication yes#PasswordAuthentication no#g" /etc/ssh/sshd_config
+      sudo service ssh restart
+    EOC
+
+    # Give the vagrant user passwordless sudo for Ansible
+    config.vm.provision "shell", path: ".vagrant/passwordless_sudo.sh"
+
+    # VM ehc01
+
+    config.vm.define "ehc01" do |ehc01|
+      ehc01.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.name = "ehc01"
+        virtualbox.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
+        virtualbox.memory = "2048"
+        virtualbox.cpus = 2
+      end
+      ehc01.vm.hostname = "ehc01"
+      ehc01.vm.network "public_network", bridge: "Ethernet", ip: "192.168.11.51"
+      config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+      config.vm.provision "shell" do |s|
+        s.inline = "echo $(ip -family inet a | grep 192 | awk '{print $2}')"
+      end
+    end
+
+    # VM ehc02
+
+    config.vm.define "ehc02" do |ehc02|
+      ehc02.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.name = "ehc02"
+        virtualbox.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
+        virtualbox.memory = "2048"
+        virtualbox.cpus = 2
+      end
+      ehc02.vm.hostname = "ehc02"
+      ehc02.vm.network "public_network", bridge: "Ethernet", ip: "192.168.11.52"
+      config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+      config.vm.provision "shell" do |s|
+        s.inline = "echo $(ip -family inet a | grep 192 | awk '{print $2}')"
+      end
+    end
+
+    # VM ehc03
+
+    config.vm.define "ehc03" do |ehc03|
+      ehc03.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.name = "ehc03"
+        virtualbox.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
+        virtualbox.memory = "2048"
+        virtualbox.cpus = 2
+      end
+      ehc03.vm.hostname = "ehc03"
+      ehc03.vm.network "public_network", bridge: "Ethernet", ip: "192.168.11.53"
+      config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+      config.vm.provision "shell" do |s|
+        s.inline = "echo $(ip -family inet a | grep 192 | awk '{print $2}')"
+      end
+    end
+
+    # VM ehcAdmin
+    # This is done last so it can run the Ansible playbook automatically
+
+    config.vm.define "ehcAdmin" do |ehcAdmin|
+      ehcAdmin.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.name = "ehcAdmin"
+        virtualbox.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
+        virtualbox.memory = "2048"
+        virtualbox.cpus = 2
+      end
+      ehcAdmin.vm.hostname = "ehcAdmin"
+      ehcAdmin.vm.network "public_network", bridge: "Ethernet", ip: "192.168.11.50"
+      ehcAdmin.vm.provision "file",
+        source: ".vagrant/ssh_config",
+        destination: "/home/vagrant/.ssh/config"
+      ehcAdmin.vm.provision "file",
+        source: ".vagrant/.bashrc",
+        destination: "/home/vagrant/.bashrc"
+      ehcAdmin.vm.provision "shell", path: ".vagrant/bootstrap.sh", privileged: false
+      ehcAdmin.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+      ehcAdmin.vm.provision "shell" do |s|
+        s.inline = "echo $(ip -family inet a | grep 192 | awk '{print $2}')"
+      end
+    end
+
+end

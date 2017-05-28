@@ -1,0 +1,889 @@
+C:\github.iu.edu\ehc>vagrant destroy -f && vagrant up
+==> ehcAdmin: VM not created. Moving on...
+==> ehc03: VM not created. Moving on...
+==> ehc02: VM not created. Moving on...
+==> ehc01: VM not created. Moving on...
+Bringing machine 'ehc01' up with 'virtualbox' provider...
+Bringing machine 'ehc02' up with 'virtualbox' provider...
+Bringing machine 'ehc03' up with 'virtualbox' provider...
+Bringing machine 'ehcAdmin' up with 'virtualbox' provider...
+==> ehc01: Importing base box 'ubuntu/trusty64'...
+==> ehc01: Matching MAC address for NAT networking...
+==> ehc01: Checking if box 'ubuntu/trusty64' is up to date...
+==> ehc01: Setting the name of the VM: ehc01
+==> ehc01: Clearing any previously set forwarded ports...
+==> ehc01: Clearing any previously set network interfaces...
+==> ehc01: Specific bridge 'Ethernet' not found. You may be asked to specify
+==> ehc01: which network to bridge to.
+==> ehc01: Preparing network interfaces based on configuration...
+    ehc01: Adapter 1: nat
+    ehc01: Adapter 2: bridged
+==> ehc01: Forwarding ports...
+    ehc01: 22 (guest) => 2222 (host) (adapter 1)
+==> ehc01: Running 'pre-boot' VM customizations...
+==> ehc01: Booting VM...
+==> ehc01: Waiting for machine to boot. This may take a few minutes...
+    ehc01: SSH address: 127.0.0.1:2222
+    ehc01: SSH username: vagrant
+    ehc01: SSH auth method: private key
+    ehc01: Warning: Remote connection disconnect. Retrying...
+==> ehc01: Machine booted and ready!
+==> ehc01: Checking for guest additions in VM...
+    ehc01: The guest additions on this VM do not match the installed version of
+    ehc01: VirtualBox! In most cases this is fine, but in rare cases it can
+    ehc01: prevent things such as shared folders from working properly. If you see
+    ehc01: shared folder errors, please make sure the guest additions within the
+    ehc01: virtual machine match the version of VirtualBox you have installed on
+    ehc01: your host and reload your VM.
+    ehc01:
+    ehc01: Guest Additions Version: 4.3.36
+    ehc01: VirtualBox Version: 5.0
+==> ehc01: Setting hostname...
+==> ehc01: Configuring and enabling network interfaces...
+==> ehc01: Mounting shared folders...
+    ehc01: /vagrant => C:/github.iu.edu/ehc
+==> ehc01: Running provisioner: file...
+==> ehc01: Running provisioner: file...
+==> ehc01: Running provisioner: file...
+==> ehc01: Running provisioner: shell...
+    ehc01: Running: inline script
+==> ehc01: ssh stop/waiting
+==> ehc01: ssh start/running, process 2273
+==> ehc01: Running provisioner: shell...
+    ehc01: Running: C:/Users/Rusty/AppData/Local/Temp/vagrant-shell20160502-11276-79r4sn.sh
+==> ehc01: Running provisioner: shell...
+    ehc01: Running: inline script
+==> ehc01: 192.168.11.51/24
+==> ehc01: Running provisioner: shell...
+    ehc01: Running: inline script
+==> ehc01: 192.168.11.51/24
+==> ehc01: Running provisioner: shell...
+    ehc01: Running: inline script
+==> ehc01: 192.168.11.51/24
+==> ehc02: Importing base box 'ubuntu/trusty64'...
+==> ehc02: Matching MAC address for NAT networking...
+==> ehc02: Checking if box 'ubuntu/trusty64' is up to date...
+==> ehc02: Setting the name of the VM: ehc02
+==> ehc02: Clearing any previously set forwarded ports...
+==> ehc02: Fixed port collision for 22 => 2222. Now on port 2200.
+==> ehc02: Clearing any previously set network interfaces...
+==> ehc02: Specific bridge 'Ethernet' not found. You may be asked to specify
+==> ehc02: which network to bridge to.
+==> ehc02: Preparing network interfaces based on configuration...
+    ehc02: Adapter 1: nat
+    ehc02: Adapter 2: bridged
+==> ehc02: Forwarding ports...
+    ehc02: 22 (guest) => 2200 (host) (adapter 1)
+==> ehc02: Running 'pre-boot' VM customizations...
+==> ehc02: Booting VM...
+==> ehc02: Waiting for machine to boot. This may take a few minutes...
+    ehc02: SSH address: 127.0.0.1:2200
+    ehc02: SSH username: vagrant
+    ehc02: SSH auth method: private key
+    ehc02: Warning: Remote connection disconnect. Retrying...
+==> ehc02: Machine booted and ready!
+==> ehc02: Checking for guest additions in VM...
+    ehc02: The guest additions on this VM do not match the installed version of
+    ehc02: VirtualBox! In most cases this is fine, but in rare cases it can
+    ehc02: prevent things such as shared folders from working properly. If you see
+    ehc02: shared folder errors, please make sure the guest additions within the
+    ehc02: virtual machine match the version of VirtualBox you have installed on
+    ehc02: your host and reload your VM.
+    ehc02:
+    ehc02: Guest Additions Version: 4.3.36
+    ehc02: VirtualBox Version: 5.0
+==> ehc02: Setting hostname...
+==> ehc02: Configuring and enabling network interfaces...
+==> ehc02: Mounting shared folders...
+    ehc02: /vagrant => C:/github.iu.edu/ehc
+==> ehc02: Running provisioner: file...
+==> ehc02: Running provisioner: file...
+==> ehc02: Running provisioner: file...
+==> ehc02: Running provisioner: shell...
+    ehc02: Running: inline script
+==> ehc02: ssh stop/waiting
+==> ehc02: ssh start/running, process 2267
+==> ehc02: Running provisioner: shell...
+    ehc02: Running: C:/Users/Rusty/AppData/Local/Temp/vagrant-shell20160502-11276-1me55oh.sh
+==> ehc02: Running provisioner: shell...
+    ehc02: Running: inline script
+==> ehc02: 192.168.11.52/24
+==> ehc02: Running provisioner: shell...
+    ehc02: Running: inline script
+==> ehc02: 192.168.11.52/24
+==> ehc02: Running provisioner: shell...
+    ehc02: Running: inline script
+==> ehc02: 192.168.11.52/24
+==> ehc03: Importing base box 'ubuntu/trusty64'...
+==> ehc03: Matching MAC address for NAT networking...
+==> ehc03: Checking if box 'ubuntu/trusty64' is up to date...
+==> ehc03: Setting the name of the VM: ehc03
+==> ehc03: Clearing any previously set forwarded ports...
+==> ehc03: Fixed port collision for 22 => 2222. Now on port 2201.
+==> ehc03: Clearing any previously set network interfaces...
+==> ehc03: Specific bridge 'Ethernet' not found. You may be asked to specify
+==> ehc03: which network to bridge to.
+==> ehc03: Preparing network interfaces based on configuration...
+    ehc03: Adapter 1: nat
+    ehc03: Adapter 2: bridged
+==> ehc03: Forwarding ports...
+    ehc03: 22 (guest) => 2201 (host) (adapter 1)
+==> ehc03: Running 'pre-boot' VM customizations...
+==> ehc03: Booting VM...
+==> ehc03: Waiting for machine to boot. This may take a few minutes...
+    ehc03: SSH address: 127.0.0.1:2201
+    ehc03: SSH username: vagrant
+    ehc03: SSH auth method: private key
+    ehc03: Warning: Remote connection disconnect. Retrying...
+==> ehc03: Machine booted and ready!
+==> ehc03: Checking for guest additions in VM...
+    ehc03: The guest additions on this VM do not match the installed version of
+    ehc03: VirtualBox! In most cases this is fine, but in rare cases it can
+    ehc03: prevent things such as shared folders from working properly. If you see
+    ehc03: shared folder errors, please make sure the guest additions within the
+    ehc03: virtual machine match the version of VirtualBox you have installed on
+    ehc03: your host and reload your VM.
+    ehc03:
+    ehc03: Guest Additions Version: 4.3.36
+    ehc03: VirtualBox Version: 5.0
+==> ehc03: Setting hostname...
+==> ehc03: Configuring and enabling network interfaces...
+==> ehc03: Mounting shared folders...
+    ehc03: /vagrant => C:/github.iu.edu/ehc
+==> ehc03: Running provisioner: file...
+==> ehc03: Running provisioner: file...
+==> ehc03: Running provisioner: file...
+==> ehc03: Running provisioner: shell...
+    ehc03: Running: inline script
+==> ehc03: ssh stop/waiting
+==> ehc03: ssh start/running, process 2388
+==> ehc03: Running provisioner: shell...
+    ehc03: Running: C:/Users/Rusty/AppData/Local/Temp/vagrant-shell20160502-11276-14mqz7q.sh
+==> ehc03: Running provisioner: shell...
+    ehc03: Running: inline script
+==> ehc03: 192.168.11.53/24
+==> ehc03: Running provisioner: shell...
+    ehc03: Running: inline script
+==> ehc03: 192.168.11.53/24
+==> ehc03: Running provisioner: shell...
+    ehc03: Running: inline script
+==> ehc03: 192.168.11.53/24
+==> ehcAdmin: Importing base box 'ubuntu/trusty64'...
+==> ehcAdmin: Matching MAC address for NAT networking...
+==> ehcAdmin: Checking if box 'ubuntu/trusty64' is up to date...
+==> ehcAdmin: Setting the name of the VM: ehcAdmin
+==> ehcAdmin: Clearing any previously set forwarded ports...
+==> ehcAdmin: Fixed port collision for 22 => 2222. Now on port 2202.
+==> ehcAdmin: Clearing any previously set network interfaces...
+==> ehcAdmin: Specific bridge 'Ethernet' not found. You may be asked to specify
+==> ehcAdmin: which network to bridge to.
+==> ehcAdmin: Preparing network interfaces based on configuration...
+    ehcAdmin: Adapter 1: nat
+    ehcAdmin: Adapter 2: bridged
+==> ehcAdmin: Forwarding ports...
+    ehcAdmin: 22 (guest) => 2202 (host) (adapter 1)
+==> ehcAdmin: Running 'pre-boot' VM customizations...
+==> ehcAdmin: Booting VM...
+==> ehcAdmin: Waiting for machine to boot. This may take a few minutes...
+    ehcAdmin: SSH address: 127.0.0.1:2202
+    ehcAdmin: SSH username: vagrant
+    ehcAdmin: SSH auth method: private key
+    ehcAdmin: Warning: Remote connection disconnect. Retrying...
+    ehcAdmin: Warning: Remote connection disconnect. Retrying...
+==> ehcAdmin: Machine booted and ready!
+==> ehcAdmin: Checking for guest additions in VM...
+    ehcAdmin: The guest additions on this VM do not match the installed version of
+    ehcAdmin: VirtualBox! In most cases this is fine, but in rare cases it can
+    ehcAdmin: prevent things such as shared folders from working properly. If you see
+    ehcAdmin: shared folder errors, please make sure the guest additions within the
+    ehcAdmin: virtual machine match the version of VirtualBox you have installed on
+    ehcAdmin: your host and reload your VM.
+    ehcAdmin:
+    ehcAdmin: Guest Additions Version: 4.3.36
+    ehcAdmin: VirtualBox Version: 5.0
+==> ehcAdmin: Setting hostname...
+==> ehcAdmin: Configuring and enabling network interfaces...
+==> ehcAdmin: Mounting shared folders...
+    ehcAdmin: /vagrant => C:/github.iu.edu/ehc
+==> ehcAdmin: Running provisioner: file...
+==> ehcAdmin: Running provisioner: file...
+==> ehcAdmin: Running provisioner: file...
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: inline script
+==> ehcAdmin: ssh stop/waiting
+==> ehcAdmin: ssh start/running, process 2211
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: C:/Users/Rusty/AppData/Local/Temp/vagrant-shell20160502-11276-1kqqs4m.sh
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: inline script
+==> ehcAdmin: 192.168.11.50/24
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: inline script
+==> ehcAdmin: 192.168.11.50/24
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: inline script
+==> ehcAdmin: 192.168.11.50/24
+==> ehcAdmin: Running provisioner: file...
+==> ehcAdmin: Running provisioner: file...
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: C:/Users/Rusty/AppData/Local/Temp/vagrant-shell20160502-11276-1fk4noo.sh
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty InRelease
+==> ehcAdmin: Get:1 http://archive.ubuntu.com trusty-updates InRelease [65.9 kB]
+==> ehcAdmin: Get:2 http://security.ubuntu.com trusty-security InRelease [65.9 kB]
+==> ehcAdmin: Get:3 http://archive.ubuntu.com trusty-backports InRelease [65.9 kB]
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty Release.gpg
+==> ehcAdmin: Get:4 http://archive.ubuntu.com trusty-updates/main Sources [273 kB]
+==> ehcAdmin: Get:5 http://security.ubuntu.com trusty-security/main Sources [112 kB]
+==> ehcAdmin: Get:6 http://archive.ubuntu.com trusty-updates/restricted Sources [5,352 B]
+==> ehcAdmin: Get:7 http://archive.ubuntu.com trusty-updates/universe Sources [154 kB]
+==> ehcAdmin: Get:8 http://archive.ubuntu.com trusty-updates/multiverse Sources [5,928 B]
+==> ehcAdmin: Get:9 http://archive.ubuntu.com trusty-updates/main amd64 Packages [756 kB]
+==> ehcAdmin: Get:10 http://security.ubuntu.com trusty-security/universe Sources [35.9 kB]
+==> ehcAdmin: Get:11 http://security.ubuntu.com trusty-security/main amd64 Packages [458 kB]
+==> ehcAdmin: Get:12 http://archive.ubuntu.com trusty-updates/restricted amd64 Packages [15.9 kB]
+==> ehcAdmin: Get:13 http://archive.ubuntu.com trusty-updates/universe amd64 Packages [359 kB]
+==> ehcAdmin: Get:14 http://archive.ubuntu.com trusty-updates/multiverse amd64 Packages [13.2 kB]
+==> ehcAdmin: Get:15 http://archive.ubuntu.com trusty-updates/main Translation-en [378 kB]
+==> ehcAdmin: Get:16 http://archive.ubuntu.com trusty-updates/multiverse Translation-en [7,227 B]
+==> ehcAdmin: Get:17 http://archive.ubuntu.com trusty-updates/restricted Translation-en [3,699 B]
+==> ehcAdmin: Get:18 http://security.ubuntu.com trusty-security/universe amd64 Packages [127 kB]
+==> ehcAdmin: Get:19 http://archive.ubuntu.com trusty-updates/universe Translation-en [188 kB]
+==> ehcAdmin: Get:20 http://archive.ubuntu.com trusty-backports/main Sources [8,948 B]
+==> ehcAdmin: Get:21 http://security.ubuntu.com trusty-security/main Translation-en [252 kB]
+==> ehcAdmin: Get:22 http://archive.ubuntu.com trusty-backports/restricted Sources [28 B]
+==> ehcAdmin: Get:23 http://archive.ubuntu.com trusty-backports/universe Sources [34.5 kB]
+==> ehcAdmin: Get:24 http://archive.ubuntu.com trusty-backports/multiverse Sources [1,898 B]
+==> ehcAdmin: Get:25 http://security.ubuntu.com trusty-security/universe Translation-en [74.9 kB]
+==> ehcAdmin: Get:26 http://archive.ubuntu.com trusty-backports/main amd64 Packages [9,998 B]
+==> ehcAdmin: Get:27 http://archive.ubuntu.com trusty-backports/restricted amd64 Packages [28 B]
+==> ehcAdmin: Get:28 http://archive.ubuntu.com trusty-backports/universe amd64 Packages [41.5 kB]
+==> ehcAdmin: Get:29 http://archive.ubuntu.com trusty-backports/multiverse amd64 Packages [1,571 B]
+==> ehcAdmin: Get:30 http://archive.ubuntu.com trusty-backports/main Translation-en [5,986 B]
+==> ehcAdmin: Get:31 http://archive.ubuntu.com trusty-backports/multiverse Translation-en [1,215 B]
+==> ehcAdmin: Get:32 http://archive.ubuntu.com trusty-backports/restricted Translation-en [28 B]
+==> ehcAdmin: Get:33 http://archive.ubuntu.com trusty-backports/universe Translation-en [36.0 kB]
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty Release
+==> ehcAdmin: Get:34 http://archive.ubuntu.com trusty/main Sources [1,064 kB]
+==> ehcAdmin: Get:35 http://archive.ubuntu.com trusty/restricted Sources [5,433 B]
+==> ehcAdmin: Get:36 http://archive.ubuntu.com trusty/universe Sources [6,399 kB]
+==> ehcAdmin: Get:37 http://archive.ubuntu.com trusty/multiverse Sources [174 kB]
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/main amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/universe amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/multiverse amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/main Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/multiverse Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/restricted Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/universe Translation-en
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/main Translation-en_US
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/multiverse Translation-en_US
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/restricted Translation-en_US
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/universe Translation-en_US
+==> ehcAdmin: Fetched 11.2 MB in 12s (890 kB/s)
+==> ehcAdmin: Reading package lists...
+==> ehcAdmin: Reading package lists...
+==> ehcAdmin: Building dependency tree...
+==> ehcAdmin: Reading state information...
+==> ehcAdmin: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+==> ehcAdmin: Reading package lists...
+==> ehcAdmin: Building dependency tree...
+==> ehcAdmin: Reading state information...
+==> ehcAdmin: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+==> ehcAdmin: gpg: keyring `/tmp/tmp5xt1mlni/secring.gpg' created
+==> ehcAdmin: gpg: keyring `/tmp/tmp5xt1mlni/pubring.gpg' created
+==> ehcAdmin: gpg: requesting key 7BB9C367 from hkp server keyserver.ubuntu.com
+==> ehcAdmin: gpg: /tmp/tmp5xt1mlni/trustdb.gpg: trustdb created
+==> ehcAdmin: gpg: key 7BB9C367: public key "Launchpad PPA for Ansible, Inc." imported
+==> ehcAdmin: gpg: Total number processed: 1
+==> ehcAdmin: gpg:               imported: 1  (RSA: 1)
+==> ehcAdmin: OK
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty InRelease
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates InRelease
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports InRelease
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty Release.gpg
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security InRelease
+==> ehcAdmin: Get:1 http://ppa.launchpad.net trusty InRelease [16.0 kB]
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/main Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/restricted Sources
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security/main Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/universe Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/multiverse Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/main amd64 Packages
+==> ehcAdmin: Get:2 http://ppa.launchpad.net trusty/main amd64 Packages [491 B]
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security/universe Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/restricted amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/universe amd64 Packages
+==> ehcAdmin: Get:3 http://ppa.launchpad.net trusty/main Translation-en [322 B]
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/multiverse amd64 Packages
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security/main amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/main Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/multiverse Translation-en
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security/universe amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/restricted Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-updates/universe Translation-en
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security/main Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/main Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/restricted Sources
+==> ehcAdmin: Hit http://security.ubuntu.com trusty-security/universe Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/universe Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/multiverse Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/main amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/restricted amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/universe amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/multiverse amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/main Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/multiverse Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/restricted Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty-backports/universe Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty Release
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/main Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/restricted Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/universe Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/multiverse Sources
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/main amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/universe amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/multiverse amd64 Packages
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/main Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/multiverse Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/restricted Translation-en
+==> ehcAdmin: Hit http://archive.ubuntu.com trusty/universe Translation-en
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/main Translation-en_US
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/multiverse Translation-en_US
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/restricted Translation-en_US
+==> ehcAdmin: Ign http://archive.ubuntu.com trusty/universe Translation-en_US
+==> ehcAdmin: Fetched 16.8 kB in 3s (4,955 B/s)
+==> ehcAdmin: Reading package lists...
+==> ehcAdmin: Reading package lists...
+==> ehcAdmin: Building dependency tree...
+==> ehcAdmin: Reading state information...
+==> ehcAdmin: The following extra packages will be installed:
+==> ehcAdmin:   python-jinja2 python-markupsafe python-paramiko python-setuptools
+==> ehcAdmin:   python-support sshpass
+==> ehcAdmin: Suggested packages:
+==> ehcAdmin:   python-jinja2-doc
+==> ehcAdmin: The following NEW packages will be installed:
+==> ehcAdmin:   ansible python-jinja2 python-markupsafe python-paramiko python-setuptools
+==> ehcAdmin:   python-support sshpass
+==> ehcAdmin: 0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+==> ehcAdmin: Need to get 1,577 kB of archives.
+==> ehcAdmin: After this operation, 10.1 MB of additional disk space will be used.
+==> ehcAdmin: Get:1 http://archive.ubuntu.com/ubuntu/ trusty/universe python-support all 1.0.15 [26.7 kB]
+==> ehcAdmin: Get:2 http://archive.ubuntu.com/ubuntu/ trusty/main python-markupsafe amd64 0.18-1build2 [14.3 kB]
+==> ehcAdmin: Get:3 http://ppa.launchpad.net/ansible/ansible/ubuntu/ trusty/main ansible all 2.0.2.0-1ppa~trusty [1,029 kB]
+==> ehcAdmin: Get:4 http://archive.ubuntu.com/ubuntu/ trusty/main python-jinja2 all 2.7.2-2 [161 kB]
+==> ehcAdmin: Get:5 http://archive.ubuntu.com/ubuntu/ trusty/main python-paramiko all 1.10.1-1git1build1 [106 kB]
+==> ehcAdmin: Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools all 3.3-1ubuntu2 [230 kB]
+==> ehcAdmin: Get:7 http://archive.ubuntu.com/ubuntu/ trusty/universe sshpass amd64 1.05-1 [10.5 kB]
+==> ehcAdmin: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+==> ehcAdmin: Fetched 1,577 kB in 2s (786 kB/s)
+==> ehcAdmin: Selecting previously unselected package python-support.
+==> ehcAdmin: (Reading database ... 62991 files and directories currently installed.)
+==> ehcAdmin: Preparing to unpack .../python-support_1.0.15_all.deb ...
+==> ehcAdmin: Unpacking python-support (1.0.15) ...
+==> ehcAdmin: Selecting previously unselected package python-markupsafe.
+==> ehcAdmin: Preparing to unpack .../python-markupsafe_0.18-1build2_amd64.deb ...
+==> ehcAdmin: Unpacking python-markupsafe (0.18-1build2) ...
+==> ehcAdmin: Selecting previously unselected package python-jinja2.
+==> ehcAdmin: Preparing to unpack .../python-jinja2_2.7.2-2_all.deb ...
+==> ehcAdmin: Unpacking python-jinja2 (2.7.2-2) ...
+==> ehcAdmin: Selecting previously unselected package python-paramiko.
+==> ehcAdmin: Preparing to unpack .../python-paramiko_1.10.1-1git1build1_all.deb ...
+==> ehcAdmin: Unpacking python-paramiko (1.10.1-1git1build1) ...
+==> ehcAdmin: Selecting previously unselected package python-setuptools.
+==> ehcAdmin: Preparing to unpack .../python-setuptools_3.3-1ubuntu2_all.deb ...
+==> ehcAdmin: Unpacking python-setuptools (3.3-1ubuntu2) ...
+==> ehcAdmin: Selecting previously unselected package sshpass.
+==> ehcAdmin: Preparing to unpack .../sshpass_1.05-1_amd64.deb ...
+==> ehcAdmin: Unpacking sshpass (1.05-1) ...
+==> ehcAdmin: Selecting previously unselected package ansible.
+==> ehcAdmin: Preparing to unpack .../ansible_2.0.2.0-1ppa~trusty_all.deb ...
+==> ehcAdmin: Unpacking ansible (2.0.2.0-1ppa~trusty) ...
+==> ehcAdmin: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+==> ehcAdmin: Setting up python-support (1.0.15) ...
+==> ehcAdmin: Setting up python-markupsafe (0.18-1build2) ...
+==> ehcAdmin: Setting up python-jinja2 (2.7.2-2) ...
+==> ehcAdmin: Setting up python-paramiko (1.10.1-1git1build1) ...
+==> ehcAdmin: Setting up python-setuptools (3.3-1ubuntu2) ...
+==> ehcAdmin: Setting up sshpass (1.05-1) ...
+==> ehcAdmin: Setting up ansible (2.0.2.0-1ppa~trusty) ...
+==> ehcAdmin: Processing triggers for python-support (1.0.15) ...
+==> ehcAdmin: Reading package lists...
+==> ehcAdmin: Building dependency tree...
+==> ehcAdmin:
+==> ehcAdmin: Reading state information...
+==> ehcAdmin: The following extra packages will be installed:
+==> ehcAdmin:   git-man liberror-perl
+==> ehcAdmin: Suggested packages:
+==> ehcAdmin:   git-daemon-run git-daemon-sysvinit git-doc git-el git-email git-gui gitk
+==> ehcAdmin:   gitweb git-arch git-bzr git-cvs git-mediawiki git-svn
+==> ehcAdmin: The following NEW packages will be installed:
+==> ehcAdmin:   git git-man liberror-perl
+==> ehcAdmin: 0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+==> ehcAdmin: Need to get 3,306 kB of archives.
+==> ehcAdmin: After this operation, 21.9 MB of additional disk space will be used.
+==> ehcAdmin: Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+==> ehcAdmin: Get:2 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
+==> ehcAdmin: Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
+==> ehcAdmin: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+==> ehcAdmin: Fetched 3,306 kB in 6s (489 kB/s)
+==> ehcAdmin: Selecting previously unselected package liberror-perl.
+==> ehcAdmin: (Reading database ... 64129 files and directories currently installed.)
+==> ehcAdmin: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+==> ehcAdmin: Unpacking liberror-perl (0.17-1.1) ...
+==> ehcAdmin: Selecting previously unselected package git-man.
+==> ehcAdmin: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
+==> ehcAdmin: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
+==> ehcAdmin: Selecting previously unselected package git.
+==> ehcAdmin: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
+==> ehcAdmin: Unpacking git (1:1.9.1-1ubuntu0.3) ...
+==> ehcAdmin: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+==> ehcAdmin: Setting up liberror-perl (0.17-1.1) ...
+==> ehcAdmin: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
+==> ehcAdmin: Setting up git (1:1.9.1-1ubuntu0.3) ...
+==> ehcAdmin: Agent pid 5400
+==> ehcAdmin: Identity added: /home/vagrant/.ssh/id_rsa (/home/vagrant/.ssh/id_rsa)
+==> ehcAdmin: # github.iu.edu SSH-2.0-libssh-0.7.0
+==> ehcAdmin: # github.iu.edu SSH-2.0-libssh-0.7.0
+==> ehcAdmin: Cloning into '/home/vagrant/ehc'...
+==> ehcAdmin: Warning: Permanently added the ECDSA host key for IP address '129.79.113.30' to the list of known hosts.
+==> ehcAdmin:
+==> ehcAdmin: PLAY [AllServers] **************************************************************
+==> ehcAdmin:
+==> ehcAdmin: TASK [setup] *******************************************************************
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin: ok: [ehc03]
+==> ehcAdmin: ok: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [servers : set sudoers file] **********************************************
+==> ehcAdmin: ok: [ehc02]
+==> ehcAdmin: ok: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [servers : set hosts file] ************************************************
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [servers : set sudoers file] **********************************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [servers : apt-get update] ************************************************
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin: ok: [ehc02]
+==> ehcAdmin: ok: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [servers : apt-get dist-upgrade] ******************************************
+==> ehcAdmin: ok: [ehc02]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin: ok: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CREATE GROUP HADOOP] ********************************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CREATE HADOOP USER] *********************************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHANGE THE DEFAULT HADOOP USER SHELL TO BASH] *******************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : GRANT HADOOP USER OWNERSHP OF /HOME/HADOOP] *********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : ENSURE HADOOP USER .SSH DIRECTORY] ******************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHECK FOR HADOOP PRIVATE KEY ON NAMENODE] ***********************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHECK FOR HADOOP PUBLIC KEY ON NAMENODE] ************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CREATE HADOOP SSH KEY] ******************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : COPY HADDOP PRIVATE KEY FROM NAMENODE TO LOCAL TMP] *************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : COPY HADOOP PUBLIC KEY FROM NAMENODE TO LOCAL ~/] ***************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : REMOVE HADOOP PRIVATE KEY FROM /root/.ssh] **********************
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : REMOVE HADOOP PUBLIC KEY FROM /root/.ssh/] **********************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHECK FOR HADOOP PRIVATE KEY IN LOCAL ~/] ***********************
+==> ehcAdmin: ok: [ehc01 -> localhost]
+==> ehcAdmin: ok: [ehc02 -> localhost]
+==> ehcAdmin: ok: [ehc03 -> localhost]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : ADD HADOOP PRIVATE KEY TO ALL HADOOP USERS] *********************
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHECK FOR HADOOP PUBLIC KEY IN LOCAL ~/] ************************
+==> ehcAdmin: ok: [ehc01 -> localhost]
+==> ehcAdmin: ok: [ehc02 -> localhost]
+==> ehcAdmin: ok: [ehc03 -> localhost]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : COPY HADOOP PUBLIC KEY TO ALL HADOOP USERS] *********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CREATE authorized_keys FILE FOR ALL HADOOP USERS] ***************
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : COPY sshconf TEMPLATE FOR ALL HADOOP USERS] *********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : REMOVE HADOOP PRIVATE KEY FROM LOCAL ~/] ************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01 -> localhost]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : REMOVE HADOOP PUBLIC KEY FROM LOCAL ~/] *************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01 -> localhost]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : INSTALL OPEN JDK 7] *********************************************
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHECK FOR PREVIOUS HADOOP INSTALLATION] *************************
+==> ehcAdmin: ok: [ehc02]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin: ok: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : ENSURE HADOOP DOWNLOAD DIRECTORY] *******************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : FETCH HADOOP] ***************************************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : ENSURE /usr/local] **********************************************
+==> ehcAdmin: ok: [ehc02]
+==> ehcAdmin: ok: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : EXTRACT HADOOP ARCHIVE] *****************************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : RENAME EXTRACTED FOLDER TO HADOOP] ******************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : SET HADOOP ENVIRONMENT VARIABLES IN /etc/profile] ***************
+==> ehcAdmin: changed: [ehc02] => (item=JAVA_HOME=/usr)
+==> ehcAdmin: changed: [ehc03] => (item=JAVA_HOME=/usr)
+==> ehcAdmin: changed: [ehc01] => (item=JAVA_HOME=/usr)
+==> ehcAdmin: changed: [ehc03] => (item=PATH=$PATH:$JAVA_HOME/bin)
+==> ehcAdmin: changed: [ehc01] => (item=PATH=$PATH:$JAVA_HOME/bin)
+==> ehcAdmin: changed: [ehc02] => (item=PATH=$PATH:$JAVA_HOME/bin)
+==> ehcAdmin: changed: [ehc01] => (item=HADOOP_HOME=/usr/local/hadoop)
+==> ehcAdmin: changed: [ehc02] => (item=HADOOP_HOME=/usr/local/hadoop)
+==> ehcAdmin: changed: [ehc03] => (item=HADOOP_HOME=/usr/local/hadoop)
+==> ehcAdmin: changed: [ehc02] => (item=PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin)
+==> ehcAdmin: changed: [ehc01] => (item=PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin)
+==> ehcAdmin: changed: [ehc03] => (item=PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin)
+==> ehcAdmin: changed: [ehc02] => (item=HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop)
+==> ehcAdmin: changed: [ehc01] => (item=HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop)
+==> ehcAdmin: changed: [ehc03] => (item=HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop)
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : SET JAVA HOME IN hadoop-env.sh] *********************************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY core-site.xml TEMPLATE ON ALL NODES] *********************
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY yarn-site.xml TEMPLATE ON ALL NODES] *********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY mapred-site.xml TEMPLATE ON ALL NODES] *******************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY hdfs-site.xml TEMPLATE ON NAMENODE] **********************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CREATE HDFS namenode DIRECTORY ON NAMENODE] *********************
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY masters TEMPLATE ON NAMENODE] ****************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY slaves TEMPLATE ON NAMENODE] *****************************
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY hdfs-site.xml TEMPLATE ON DATANODES] *********************
+==> ehcAdmin: skipping: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CREATE HDFS datanode DIRECTORY ON DATANODES] ********************
+==> ehcAdmin: skipping: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : CHANGE OWNER OF /usr/local/hadoop/ TO HADOP USER] ***************
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY hadoop-dfs INIT TEMPLATE ON ALL NODES] *******************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : DEPLOY hadoop-yarn INIT TEMPLATE ON ALL NODES] ******************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : FORMAT THE HADOOP FILESYSTEM ON THE NAMENODE] *******************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : START DFS ON THE NAMENODE] **************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [hadoop : START YARN ON THE NAMENODE] *************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : check for /usr/local/hadoop] *************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : check for /usr/local/flume] **************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : ensure flume download directory] *********************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : fetch flume] *****************************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : extract archive] *************************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : rename extracted flume folder to flume] **************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : set flume environment exports] ***********************************
+==> ehcAdmin: skipping: [ehc02] => (item=FLUME_HOME=/usr/local/flume)
+==> ehcAdmin: skipping: [ehc02] => (item=PATH=$PATH:$FLUME_HOME/bin)
+==> ehcAdmin: skipping: [ehc03] => (item=FLUME_HOME=/usr/local/flume)
+==> ehcAdmin: skipping: [ehc03] => (item=PATH=$PATH:$FLUME_HOME/bin)
+==> ehcAdmin: skipping: [ehc03] => (item=CLASSPATH=$CLASSPATH:$FLUME_HOME/lib)
+==> ehcAdmin: skipping: [ehc02] => (item=CLASSPATH=$CLASSPATH:$FLUME_HOME/lib)
+==> ehcAdmin: changed: [ehc01] => (item=FLUME_HOME=/usr/local/flume)
+==> ehcAdmin: changed: [ehc01] => (item=PATH=$PATH:$FLUME_HOME/bin)
+==> ehcAdmin: changed: [ehc01] => (item=CLASSPATH=$CLASSPATH:$FLUME_HOME/lib)
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : deploy flume-conf.properties template] ***************************
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : deploy flume-env.sh template] ************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : deploy log4j.properties template] ********************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : deploy flume syslog agent config template] ***********************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : CREATE FLUME LOG DIRECTORY] **************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : CHANGE OWNER ON /USR/LOCAL/FLUME TO HADOOP] **********************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : CREATE HADOOP SYSLOG DIRECTORY] **********************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : DEPLOY FLUME SYSLOG INIT TEMPLATE] *******************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : START FLUME-SYSLOG-AGENT] ****************************************
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : set syslog to point to flume on the namenode] ********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [flume : restart rsyslog] *************************************************
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [elasticsearch : ENSURE ELASTIC SEARH DOWNLOAD DIRECTORY] *****************
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [elasticsearch : DOWNLOAD ELASTIC SEARCH DEB PACKAGE] *********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [elasticsearch : INSTALL ELASTIC SEARCH DEB PACKAGE] **********************
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [elasticsearch : DEPLOY elasticsearch.yml TEMPLATE ON NAMENODE] ***********
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin:
+==> ehcAdmin: TASK [elasticsearch : SET ELASTIC SEARCH TO START AT BOOT] *********************
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin:
+==> ehcAdmin: TASK [elasticsearch : RESTART THE elasticsearch SERVICE] ***********************
+==> ehcAdmin: changed: [ehc03]
+==> ehcAdmin: changed: [ehc02]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : ADD KIBANA REPOSITORY KEY] **************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : ADD KIBANA REPOSITORY] ******************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : UPDATE APT] *****************************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : DIST-UPGRADE] ***************************************************
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: ok: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : INSTALL KIBANA] *************************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : DEPLOY kibana.yml TEMPLATE ON DATANODES] ************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : SET KIBANA TO START AT BOOT] ************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: TASK [kibana : RESTART THE kibana SERVICE] *************************************
+==> ehcAdmin: skipping: [ehc02]
+==> ehcAdmin: skipping: [ehc03]
+==> ehcAdmin: changed: [ehc01]
+==> ehcAdmin:
+==> ehcAdmin: PLAY RECAP *********************************************************************
+==> ehcAdmin: ehc01                      : ok=80   changed=66   unreachable=0    failed=0
+==> ehcAdmin: ehc02                      : ok=42   changed=34   unreachable=0    failed=0
+==> ehcAdmin: ehc03                      : ok=42   changed=34   unreachable=0    failed=0
+==> ehcAdmin: Running provisioner: shell...
+    ehcAdmin: Running: inline script
+==> ehcAdmin: 192.168.11.50/24
+
+C:\github.iu.edu\ehc>

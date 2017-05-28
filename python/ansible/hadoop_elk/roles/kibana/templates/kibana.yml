@@ -1,0 +1,2 @@
+server.host: "0.0.0.0"
+elasticsearch.url: "http://{{ hostvars[inventory_hostname]['ansible_eth1']['ipv4']['address'] }}:9200"

@@ -1,0 +1,166 @@
+---
+# tasks file for flume
+#
+#
+#
+- name: check for /usr/local/hadoop
+  stat:
+    path: /usr/local/hadoop
+  register: hadoop_present
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: check for /usr/local/flume
+  stat:
+    path: /usr/local/flume
+  register: flume_present
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: ensure flume download directory
+  file:
+    path: ~/flume
+    state: directory
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (flume_present.stat.exists == false)
+#
+#
+#
+- name: fetch flume
+  get_url:
+    url: "{{ flume_url }}"
+    dest: ~/flume
+    checksum: "{{ flume_md5 }}"
+    timeout: 10
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (flume_present.stat.exists == false)
+#
+#
+#
+- name: extract archive
+  unarchive:
+    src: "~/flume/{{ flume_archive_name }}"
+    dest: /usr/local
+    copy: no
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (flume_present.stat.exists == false)
+#
+#
+#
+- name: rename extracted flume folder to flume
+  command: "mv /usr/local/{{ flume_extracted_name }} /usr/local/flume"
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (flume_present.stat.exists == false)
+#
+#
+#
+- name: set flume environment exports
+  lineinfile:
+    dest: "/etc/profile"
+    line: "export {{ item }}"
+    create: yes
+  with_items:
+    - FLUME_HOME=/usr/local/flume
+    - PATH=$PATH:$FLUME_HOME/bin
+    - CLASSPATH=$CLASSPATH:$FLUME_HOME/lib
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: deploy flume-conf.properties template
+  template:
+    src: templates/flume/flume-conf.properties
+    dest: /usr/local/flume/conf/flume-conf.properties
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: deploy flume-env.sh template
+  template:
+    src: templates/flume/flume-env.sh
+    dest: /usr/local/flume/conf/flume-env.sh
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: deploy log4j.properties template
+  template:
+    src: templates/flume/log4j.properties
+    dest: /usr/local/flume/conf/log4j.properties
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: deploy flume syslog agent config template
+  template:
+    src: templates/agents/agent-syslog_mem_hdfs.conf
+    dest: /usr/local/flume/conf/agent-syslog_mem_hdfs.conf
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: CREATE FLUME LOG DIRECTORY
+  file:
+    path: /usr/local/flume/logs
+    state: directory
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (hadoop_present.stat.exists == true)
+#
+#
+#
+- name: CHANGE OWNER ON /USR/LOCAL/FLUME TO HADOOP
+  file:
+    path: /usr/local/flume
+    state: directory
+    owner: hadoop
+    group: hadoop
+    recurse: yes
+    mode: 0755
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: CREATE HADOOP SYSLOG DIRECTORY
+  become: yes
+  become_user: hadoop
+  command: /usr/local/hadoop/bin/hdfs dfs -mkdir /syslog
+  when: (inventory_hostname in groups['HadoopNameNode'])  and
+        (flume_present.stat.exists == false)
+#
+#
+#
+- name: DEPLOY FLUME SYSLOG INIT TEMPLATE
+  template:
+    src: templates/init/flume-syslog.conf
+    dest: /etc/init/flume-syslog.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: START FLUME-SYSLOG-AGENT
+  service:
+    name: flume-syslog
+    state: started
+  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: set syslog to point to flume on the namenode
+  template:
+    src: templates/rsyslog/50-default.conf
+    dest: /etc/rsyslog.d/50-default.conf
+    owner: root
+    group: root
+    mode: 0755
+#
+#
+#
+- name: restart rsyslog
+  service:
+    name: rsyslog
+    state: restarted

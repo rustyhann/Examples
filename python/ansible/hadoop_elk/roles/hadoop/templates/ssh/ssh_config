@@ -1,0 +1,7 @@
+{% for host in groups['AllServers'] %}
+Host {{ hostvars[host]['ansible_hostname'] }}
+  User hadoop
+  IdentityFile /home/hadoop/.ssh/hadoop_rsa
+  StrictHostKeyChecking no
+
+{% endfor %}

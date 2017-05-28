@@ -1,0 +1,409 @@
+---
+#
+#
+#
+- name: CREATE GROUP HADOOP
+  group:
+    name: hadoop
+    state: present
+#
+#
+#
+- name: CREATE HADOOP USER
+  user:
+    name: hadoop
+    groups: "hadoop"
+    password: "$1$salt$qJH7.N4xYta3aEG/dfqo/0"
+#
+#
+#
+- name: CHANGE THE DEFAULT HADOOP USER SHELL TO BASH
+  command: chsh hadoop -s /bin/bash
+#
+#
+#
+- name: GRANT HADOOP USER OWNERSHP OF /HOME/HADOOP
+  file:
+    state: directory
+    path: /home/hadoop
+    owner: hadoop
+    group: hadoop
+    mode: u+rwx
+#
+#
+#
+- name: ENSURE HADOOP USER .SSH DIRECTORY
+  file:
+    path: /home/hadoop/.ssh
+    state: directory
+    owner: hadoop
+    group: hadoop
+    mode: 0700
+#
+#
+#
+- name: CHECK FOR HADOOP PRIVATE KEY ON NAMENODE
+  stat:
+    path: "/home/hadoop/.ssh/hadoop_rsa"
+  register: hadoop_rsa
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+#- debug:
+#    msg: "/home/hadoop/.ssh/hadoop_rsa exists: {{hadoop_rsa.stat.exists}}"
+#  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: CHECK FOR HADOOP PUBLIC KEY ON NAMENODE
+  stat:
+    path: "/home/hadoop/.ssh/hadoop_rsa.pub"
+  register: hadoop_rsa_pub
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+#- debug:
+#    msg: "/home/hadoop/.ssh/hadoop_rsa.pub exists: {{hadoop_rsa_pub.stat.exists}}"
+#  when: (inventory_hostname in groups['HadoopNameNode'])
+#
+#
+#
+- name: CREATE HADOOP SSH KEY
+  command: ssh-keygen -f /root/.ssh/hadoop_rsa -t rsa -P ""
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (hadoop_rsa.stat.exists == false or hadoop_rsa_pub.stat.exists == false)
+#
+#
+#
+- name: COPY HADDOP PRIVATE KEY FROM NAMENODE TO LOCAL TMP
+  fetch:
+    src: /root/.ssh/hadoop_rsa
+    dest: ~/hadoop_rsa
+    flat: yes
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (hadoop_rsa.stat.exists == false or hadoop_rsa_pub.stat.exists == false)
+#
+#
+#
+- name: COPY HADOOP PUBLIC KEY FROM NAMENODE TO LOCAL ~/
+  fetch:
+    src: /root/.ssh/hadoop_rsa.pub
+    dest: ~/hadoop_rsa.pub
+    flat: yes
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (hadoop_rsa.stat.exists == false or hadoop_rsa_pub.stat.exists == false)
+#
+#
+#
+- name: REMOVE HADOOP PRIVATE KEY FROM /root/.ssh
+  file:
+    path: /root/.ssh/hadoop_rsa
+    state: absent
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (hadoop_rsa.stat.exists == false or hadoop_rsa_pub.stat.exists == false)
+#
+#
+#
+- name: REMOVE HADOOP PUBLIC KEY FROM /root/.ssh/
+  file:
+    path: /root/.ssh/hadoop_rsa.pub
+    state: absent
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (hadoop_rsa.stat.exists == false or hadoop_rsa_pub.stat.exists == false)
+#
+#
+#
+- name: CHECK FOR HADOOP PRIVATE KEY IN LOCAL ~/
+  local_action: stat path=~/hadoop_rsa
+  register: local_hadoop_rsa
+  become: no
+#
+#
+#
+#- debug:
+#    msg: "~/hadoop_rsa exists: {{local_hadoop_rsa.stat.exists}}"
+#
+#
+#
+- name: ADD HADOOP PRIVATE KEY TO ALL HADOOP USERS
+  copy:
+    src: ~/hadoop_rsa
+    dest: /home/hadoop/.ssh/hadoop_rsa
+    owner: hadoop
+    group: hadoop
+    mode: 0600
+  when: (local_hadoop_rsa.stat.exists == true)
+#
+#
+#
+- name: CHECK FOR HADOOP PUBLIC KEY IN LOCAL ~/
+  local_action: stat path=~/hadoop_rsa.pub
+  register: local_hadoop_rsa_pub
+  become: no
+#
+#
+#
+#- debug:
+#    msg: "~/local_hadoop_rsa.pub exists: {{local_hadoop_rsa_pub.stat.exists}}"
+#
+#
+#
+- name: COPY HADOOP PUBLIC KEY TO ALL HADOOP USERS
+  copy:
+    src: ~/hadoop_rsa.pub
+    dest: /home/hadoop/.ssh/hadoop_rsa.pub
+    owner: hadoop
+    group: hadoop
+    mode: 0644
+  when: (local_hadoop_rsa_pub.stat.exists == true)
+#
+#
+#
+- name: CREATE authorized_keys FILE FOR ALL HADOOP USERS
+  authorized_key:
+    user: hadoop
+    key: "{{ lookup('file', '~/hadoop_rsa.pub') }}"
+  when: (local_hadoop_rsa_pub.stat.exists == true)
+#
+#
+#
+- name: COPY sshconf TEMPLATE FOR ALL HADOOP USERS
+  template:
+    src: templates/ssh/ssh_config
+    dest: /home/hadoop/.ssh/config
+#
+#
+#
+- name: REMOVE HADOOP PRIVATE KEY FROM LOCAL ~/
+  local_action: file path=~/hadoop_rsa state=absent
+  become: no
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (local_hadoop_rsa.stat.exists == true)
+#
+#
+#
+- name: REMOVE HADOOP PUBLIC KEY FROM LOCAL ~/
+  local_action: file path=~/hadoop_rsa.pub state=absent
+  become: no
+  when: (inventory_hostname in groups['HadoopNameNode']) and
+        (local_hadoop_rsa_pub.stat.exists == true)
+#
+#
+#
+- name: INSTALL OPEN JDK 7
+  apt:
+    name: openjdk-7-jdk
+    state: present
+#
+#
+#
+- name: CHECK FOR PREVIOUS HADOOP INSTALLATION
+  stat:
+    path: /usr/local/hadoop
+  register: hadoop_present
+#
+#
+#
+- name: ENSURE HADOOP DOWNLOAD DIRECTORY
+  file:
+    path: ~/hadoop
+    state: directory
+  when: (hadoop_present.stat.exists == false)
+#
+#
+#
+- name: FETCH HADOOP
+  get_url:
+    url: "{{ hadoop_url }}"
+    dest: ~/hadoop
+    sha256sum: "{{ hadoop_sha256 }}"
+    timeout: 10
+  when: (hadoop_present.stat.exists == false)
+#
+#
+#
+- name: ENSURE /usr/local
+  file:
+    path: /usr/local
+    state: directory
+  when: (hadoop_present.stat.exists == false)
+#
+#
+#
+- name: EXTRACT HADOOP ARCHIVE
+  unarchive:
+    src: "~/hadoop/{{ hadoop_archive_name }}"
+    dest: /usr/local
+    copy: no
+  when: (hadoop_present.stat.exists == false)
+#
+#
+#
+- name: RENAME EXTRACTED FOLDER TO HADOOP
+  command: "mv /usr/local/{{ hadoop_extracted_name }} /usr/local/hadoop"
+  when: (hadoop_present.stat.exists == false)
+#
+#
+#
+- name: SET HADOOP ENVIRONMENT VARIABLES IN /etc/profile
+  lineinfile:
+    dest: "/etc/profile"
+    line: "export {{ item }}"
+    create: yes
+  with_items:
+    - JAVA_HOME=/usr
+    - PATH=$PATH:$JAVA_HOME/bin
+    - HADOOP_HOME=/usr/local/hadoop
+    - PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+    - HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+#
+#
+#
+- name: SET JAVA HOME IN hadoop-env.sh
+  replace:
+    dest: "/usr/local/hadoop/etc/hadoop/hadoop-env.sh"
+    regexp: '^export JAVA_HOME\=\$\{JAVA_HOME\}'
+    replace: 'export JAVA_HOME=/usr/'
+    backup: no
+#
+#
+#
+- name: DEPLOY core-site.xml TEMPLATE ON ALL NODES
+  template:
+    src: templates/allnodes/core-site.xml
+    dest: /usr/local/hadoop/etc/hadoop/core-site.xml
+#
+#
+#
+- name: DEPLOY yarn-site.xml TEMPLATE ON ALL NODES
+  template:
+    src: templates/allnodes/yarn-site.xml
+    dest: /usr/local/hadoop/etc/hadoop/yarn-site.xml
+#
+#
+#
+- name: DEPLOY mapred-site.xml TEMPLATE ON ALL NODES
+  template:
+    src: templates/allnodes/mapred-site.xml
+    dest: /usr/local/hadoop/etc/hadoop/mapred-site.xml
+#
+#
+#
+- name: DEPLOY hdfs-site.xml TEMPLATE ON NAMENODE
+  template:
+    src: templates/namenode/hdfs-site.xml
+    dest: /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: CREATE HDFS namenode DIRECTORY ON NAMENODE
+  file:
+    path: /usr/local/hadoop/hadoop_data/hdfs/namenode
+    state: directory
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: DEPLOY masters TEMPLATE ON NAMENODE
+  template:
+    src: templates/namenode/masters
+    dest: /usr/local/hadoop/etc/hadoop/masters
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: DEPLOY slaves TEMPLATE ON NAMENODE
+  template:
+    src: templates/namenode/slaves
+    dest: /usr/local/hadoop/etc/hadoop/slaves
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: DEPLOY hdfs-site.xml TEMPLATE ON DATANODES
+  template:
+    src: templates/datanodes/hdfs-site.xml
+    dest: /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+  when: inventory_hostname in groups['HadoopDataNodes']
+#
+#
+#
+- name: CREATE HDFS datanode DIRECTORY ON DATANODES
+  file:
+    path: /usr/local/hadoop/hadoop_data/hdfs/datanode
+    state: directory
+  when: inventory_hostname in groups['HadoopDataNodes']
+#
+#
+#
+- name: CHANGE OWNER OF /usr/local/hadoop/ TO HADOP USER
+  file:
+    path: /usr/local/hadoop
+    state: directory
+    owner: hadoop
+    group: hadoop
+    recurse: yes
+    mode: 0755
+#
+#
+#
+- name: DEPLOY hadoop-dfs INIT TEMPLATE ON ALL NODES
+  template:
+    src: templates/init/hadoop-dfs.conf
+    dest: /etc/init/hadoop-dfs.conf
+    owner: root
+    group: root
+    mode: 0644
+#
+#
+#
+- name: DEPLOY hadoop-yarn INIT TEMPLATE ON ALL NODES
+  template:
+    src: templates/init/hadoop-yarn.conf
+    dest: /etc/init/hadoop-yarn.conf
+    owner: root
+    group: root
+    mode: 0644
+#
+#
+#
+- name: FORMAT THE HADOOP FILESYSTEM ON THE NAMENODE
+  become: yes
+  become_user: hadoop
+  shell: /usr/local/hadoop/bin/hdfs namenode -format -force
+  async: 600
+  poll: 30
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: START DFS ON THE NAMENODE
+  become: yes
+  become_user: hadoop
+  shell: /usr/local/hadoop/sbin/start-dfs.sh
+  async: 600
+  poll: 10
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+- name: START YARN ON THE NAMENODE
+  become: yes
+  become_user: hadoop
+  shell: /usr/local/hadoop/sbin/start-yarn.sh
+  async: 600
+  poll: 10
+  when: inventory_hostname in groups['HadoopNameNode']
+#
+#
+#
+#- name: hdfs report
+#  become: yes
+#  become_user: hadoop
+#  shell: /usr/local/hadoop/bin/hdfs dfsadmin -report
+#  async: 600
+#  poll: 5
+#  when: inventory_hostname in groups['HadoopDataNodes']

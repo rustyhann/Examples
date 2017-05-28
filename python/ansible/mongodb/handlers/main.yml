@@ -1,0 +1,24 @@
+---
+
+# handlers file for hw5_rehann_mongodb
+# THESE ARE EXECUTED IN THE ORDER THEY ARE WRITTEN IN THE FILE
+# NOT THE ORDER THEY ARE CALLED
+
+- name: Enable MongoDB Service
+  service: name=mongodb enabled=yes
+
+- name: Disable MongoDB Service
+  service: name=mongodb enabled=no
+
+- name: Start MongoDB Service
+  service: name=mongodb state=started
+
+- name: Stop MongoDB Service
+  service: name=mongodb state=stopped
+
+- name: Restart MongoDB Service
+  service: name=mongodb state=restarted
+
+- name: Reload MongoDB Service
+  service: name=mongodb state=reloaded
+

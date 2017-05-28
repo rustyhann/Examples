@@ -1,0 +1,30 @@
+---
+# tasks file for elastic_search
+
+- name: ENSURE ELASTIC SEARH DOWNLOAD DIRECTORY
+  file:
+    path: ~/es
+    state: directory
+
+- name: DOWNLOAD ELASTIC SEARCH DEB PACKAGE
+  get_url:
+    url: "{{ es_deb_url }}"
+    dest: ~/es
+    checksum: "{{ es_sha1 }}"
+    timeout: 10
+
+- name: INSTALL ELASTIC SEARCH DEB PACKAGE
+  command: "dpkg -i ~/es/{{ es_deb_name }}"
+
+- name: DEPLOY elasticsearch.yml TEMPLATE ON NAMENODE
+  template:
+    src: templates/elasticsearch.yml
+    dest: /etc/elasticsearch/elasticsearch.yml
+
+- name: SET ELASTIC SEARCH TO START AT BOOT
+  command: update-rc.d elasticsearch defaults
+
+- name: RESTART THE elasticsearch SERVICE
+  service:
+    name: elasticsearch
+    state: restarted

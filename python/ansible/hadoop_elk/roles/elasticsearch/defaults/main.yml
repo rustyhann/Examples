@@ -1,0 +1,6 @@
+---
+# defaults file for elastic_search
+
+es_deb_url: "https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.1/elasticsearch-2.3.1.deb"
+es_sha1: "sha1:1591001c27c9e78f31ea819ec3459b94382ff0b7"
+es_deb_name: "elasticsearch-2.3.1.deb"

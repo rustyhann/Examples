@@ -1,0 +1,40 @@
+---
+# tasks file for hw5_rehann_mongodb
+# Add GPG keys
+- name: Add MongoDB GPG Key
+  apt_key:
+    keyserver: "{{ mongodb_keyserver }}"
+    id: "{{ mongodb_gpgkey_id }}"
+
+# Add repositories
+- name: Add MongoDB Repository
+  apt_repository:
+    repo: "{{ mongodb_repository_list }}"
+
+# Update the apt cache once
+- name: Update Apt Cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+
+# Add packages, enable the mongodb service, and start it
+- name: Add MongoDB Package
+  apt:
+    name: "{{ mongodb_package_name }}"
+    state: present
+  notify:
+    - Enable MongoDB Service
+    - Start MongoDB Service
+
+# Run the handlers above before moving on to the next task
+- meta: flush_handlers
+
+# Copy template files
+- name: Deploy mongodb.service Template
+  template:
+    src: templates/mongodb.service.j2
+    dest: /lib/systemd/system/mongodb.service
+    owner: root
+    mode: 0644
+  notify:
+    - Restart MongoDB Service

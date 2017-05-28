@@ -1,0 +1,10 @@
+network.host: _site_
+network.bind_host: _site_
+network.publish_host: _site_
+cluster.name: elastichadoopcluster
+node.name: {{ inventory_hostname }}
+discovery.zen.ping.unicast.hosts: {% for host in groups['Elasticsearch'] %}{{ hostvars[host]['ansible_eth1']['ipv4']['address'] }}{% if not loop.last %},{% endif %}{% endfor %}
+
+es_heap_size: 1G
+bootstrap.mlockall: true
+max_locked_memory: unlimited

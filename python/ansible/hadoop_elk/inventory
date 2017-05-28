@@ -1,0 +1,22 @@
+[AllServers]
+ehc01 ansible_ssh_host=192.168.11.51 ansible_user=vagrant
+ehc02 ansible_ssh_host=192.168.11.52 ansible_user=vagrant
+ehc03 ansible_ssh_host=192.168.11.53 ansible_user=vagrant
+
+[HadoopNameNode]
+ehc01 ansible_ssh_host=192.168.11.51 ansible_user=vagrant
+
+[HadoopDataNodes]
+ehc02 ansible_ssh_host=192.168.11.52 ansible_user=vagrant
+ehc03 ansible_ssh_host=192.168.11.53 ansible_user=vagrant
+
+[Flume]
+ehc01 ansible_ssh_host=192.168.11.51 ansible_user=vagrant
+
+[Elasticsearch]
+ehc01 ansible_ssh_host=192.168.11.51 ansible_user=vagrant
+ehc02 ansible_ssh_host=192.168.11.52 ansible_user=vagrant
+ehc03 ansible_ssh_host=192.168.11.53 ansible_user=vagrant
+
+[Kibana]
+ehc01 ansible_ssh_host=192.168.11.51 ansible_user=vagrant

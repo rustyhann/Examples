@@ -1,0 +1,17 @@
+Host ehc01
+    User vagrant
+    Hostname 192.168.11.51
+    IdentityFile /home/vagrant/.ssh/id_rsa
+    StrictHostKeyChecking no
+
+Host ehc02
+    User vagrant
+    Hostname 192.168.11.52
+    IdentityFile /home/vagrant/.ssh/id_rsa
+    StrictHostKeyChecking no
+
+Host ehc03
+    User vagrant
+    Hostname 192.168.11.53
+    IdentityFile /home/vagrant/.ssh/id_rsa
+    StrictHostKeyChecking no
